@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/member")
 public class NxmileController {
     //개발하면됨..
-
+    //2020.06.18
 }
