@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 
 public interface INxmileService {
 
+    public ResponseEntity<Object> register( RequestDto RequestDto);
+
     public ResponseEntity<String> dosomething(final RequestDto RequestDto);
 
     public ResponseEntity<String> doInterfaceExternalSystem(final RequestDto RequestDto);

@@ -15,6 +15,11 @@ import org.springframework.stereotype.Service;
 public class NXmileService implements INxmileService{
 
     @Override
+    public ResponseEntity<Object> register(RequestDto RequestDto) {
+        return null;
+    }
+
+    @Override
     public ResponseEntity<String> dosomething(RequestDto RequestDto) {
         return null;
     }
