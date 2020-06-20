@@ -15,7 +15,7 @@
             </layout>
         </encoder>
     </appender>
-    
+
     <logger name="org.hibernate.tool.hbm2ddl" level="DEBUG">
         <appender-ref ref="CONSOLE" />
     </logger>
