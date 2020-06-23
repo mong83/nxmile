@@ -20,7 +20,7 @@ public class RequestDto {
     private String mbrId;
     private String mbrFgNo;     //법인/개인사업자
 
-    @NotNull
+    @NotNull(message = "organCd is empty")
     private String organCode;
 
 }

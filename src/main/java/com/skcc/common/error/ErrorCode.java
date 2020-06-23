@@ -7,6 +7,7 @@ public enum ErrorCode {
 
     // Common
     // 정의가 필요 함.
+    EMPTY_MBRID(400, "5604","serch_fg(1) : mbrid is empty"),
     INVALID_INPUT_VALUE(400, "C001", " Invalid Input Value"),
     METHOD_NOT_ALLOWED(405, "C002", " Invalid Input Value"),
     ENTITY_NOT_FOUND(400, "C003", " Entity Not Found"),

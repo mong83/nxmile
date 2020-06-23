@@ -9,16 +9,15 @@ import org.springframework.validation.Errors;
 @Component
 public class MemberValidator {
 
-    public void validate(RequestDto requestDto, Errors errors) {
+    public void validate(RequestDto requestDto) {
 
-        if(requestDto.getSearchFg().equals("1") && requestDto.getMbrId()==null){
-            errors.rejectValue("mbrId","wrongValue","mbrId is wrong");
-            BusinessException businessException = new BusinessException("NotFound", ErrorCode.ENTITY_NOT_FOUND);
-            System.out.println("validate - err"+"["+requestDto.getSearchFg()+"]"+"["+requestDto.getMbrId()+"]"+businessException.getMessage());
-        }else {
+        if(requestDto.getSearchFg().equals("1") && requestDto.getMbrId()==null) {
+            System.out.println("validate - err"+"["+requestDto.getSearchFg()+"]"+"["+requestDto.getMbrId()+"]");
+            throw new BusinessException("NotFound", ErrorCode.EMPTY_MBRID);
+        }
 
             System.out.println("validate - success" + "[" + requestDto.getSearchFg() + "]" + "[" + requestDto.getMbrId() + "]");
-        }
+
 
     }
 }

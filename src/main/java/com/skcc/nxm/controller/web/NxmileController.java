@@ -19,8 +19,6 @@ import javax.validation.Validator;
 @RestController
 @RequestMapping("/member")
 public class NxmileController {
-    //개발하면됨..
-    //2020.06.20
 
     private final INxmileService NXmileService;
 
@@ -28,23 +26,14 @@ public class NxmileController {
     MemberValidator memberValidator;
 
     @PostMapping
-    public ResponseEntity<Object> register(@RequestBody @Valid RequestDto requestDto, Errors errors){
+    public ResponseEntity<Object> register(@RequestBody @Valid RequestDto requestDto){
 
         log.debug("[Controller] ConfigServerController Called - register");
 
-        //필수입력값 검증
-        if(errors.hasErrors()){
-            return ResponseEntity.badRequest().build();
-        }
+        //@Valid 통한 입력값 검증
 
-        //입력값 검증
-        memberValidator.validate(requestDto , errors);
-
-        if(errors.hasErrors()){
-            System.out.println("input validation error");
-            return ResponseEntity.badRequest().build();
-        }
-
+        //@Biz 로직을 통한 입력값 검증
+        memberValidator.validate(requestDto);
 
         System.out.println("====" + requestDto.getSearchFg() +"[" + requestDto.getOrganCode()+"]" +requestDto.getMbrId());
         return  ResponseEntity.ok("kyk");
