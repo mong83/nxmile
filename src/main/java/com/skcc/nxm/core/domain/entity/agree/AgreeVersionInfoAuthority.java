@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class AgreeVersionInfoAuthority {
 
     @Id
+    @GeneratedValue
     @Column(name="agr_auth_id")
     private Long id;
 

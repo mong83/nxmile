@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,24 +14,24 @@ import java.util.List;
 public class AgreeVersionRule {
 
     @Id
+    @GeneratedValue
     @Column( name = "agr_rule_id")
     private Long id;
 
-    @OneToMany
-    @JoinColumn( name = "agr_ver_cd")
-    private List<AgreeVersion> agreeVersion = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "agr_ver_cd")
+    private AgreeVersion agreeVersion;
 
-    @OneToMany
-    @JoinColumn( name = "coop_crd_cd")
-    private List<CoopCardCode> coopCardCode = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "coop_crd_cd")
+    private CoopCardCode coopCardCode;
 
-    @OneToMany
-    @JoinColumn( name = "organ_cd")
-    private List<OrganCode> organCode = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "organ_cd")
+    private OrganCode organCode;
 
-    private String applyFromDate;
+    private LocalDateTime validFromDate = LocalDateTime.now();
 
-    private String applyToDate;
-
+    private LocalDateTime validToDate = LocalDateTime.now();
 
 }

@@ -1,10 +1,14 @@
 package com.skcc.nxm.core.domain.entity.card;
 
 import com.skcc.nxm.core.domain.entity.member.Member;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Setter
+@Getter
 public class Card {
 
     @Id
@@ -21,6 +25,7 @@ public class Card {
 
     private String issueDay;
 
+    @Enumerated(value = EnumType.STRING)
     private Status status;
 
 
